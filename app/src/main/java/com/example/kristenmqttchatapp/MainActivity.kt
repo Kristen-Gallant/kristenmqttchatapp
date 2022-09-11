@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     fun connect(applicationContext : Context) {
         try {
             val username = sharedPreferences.getString("username" , "").toString()
-            mqttAndroidClient = MqttAndroidClient (applicationContext,"tcp://192.168.137.101:1883",
+            mqttAndroidClient = MqttAndroidClient (applicationContext,"tcp://broker.hivemq.com:1883",
                 username
             )
             val options = MqttConnectOptions()
