@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:id="@+id/navigation_graph"
+    app:startDestination="@id/login">
+
+
+    <fragment
+        android:id="@+id/chats"
+        android:name="com.example.kristenmqttchatapp.chats.Chats"
+        android:label="Chats">
+        <action
+            android:id="@+id/action_chats_to_newChat"
+            app:destination="@id/newChat" />
+        <action
+            android:id="@+id/action_chats_to_chatPreview"
+            app:destination="@id/chatPreview" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatPreview"
+        android:name="com.example.kristenmqttchatapp.chatpreview.ChatPreview"
+        android:label="ChatPreview">
+        <argument
+            android:name="chatId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.kristenmqttchatapp.login.Login"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_login_to_chats"
+            app:destination="@id/chats" />
+    </fragment>
+    <fragment
+        android:id="@+id/newChat"
+        android:name="com.example.kristenmqttchatapp.newchat.NewChat"
+        android:label="NewChat" >
+        <action
+            android:id="@+id/action_newChat_to_chatPreview"
+            app:destination="@id/chatPreview" />
+    </fragment>
+</navigation>

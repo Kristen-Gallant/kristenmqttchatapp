@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.appbar.AppBarLayout android:id="@+id/app_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="?attr/actionBarTheme">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:titleCentered="false" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/chatlistrecyclerview"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity"
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/add_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:icon="@drawable/ic_baseline_add_24"
+                    android:text="Actions"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/startchat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:fabSize="normal"
+                    android:src="@drawable/ic_baseline_person_add_alt_1_24"
+                    app:layout_constraintBottom_toTopOf="@+id/add_fab"
+                    app:layout_constraintEnd_toEndOf="@+id/add_fab" />
+
+                <TextView
+                    android:id="@+id/add_alarm_action_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="New Chat"
+                    app:layout_constraintBottom_toBottomOf="@+id/startchat"
+                    app:layout_constraintEnd_toStartOf="@+id/startchat"
+                    app:layout_constraintTop_toTopOf="@+id/startchat" />
+
+                <!--Floating action button for add person-->
+                <!--Make sure that you are constraining this button
+                    to the add Alarm FAB button-->
+                <!--Make sure to add backgroundTint attribute to match
+                     the entire application color-->
+                <!--because after changing the base application theme
+                     the color of the FAB is set Blue as default-->
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/logout"
+                    android:src="@drawable/ic_baseline_login_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:fabSize="normal"
+                    app:layout_constraintBottom_toTopOf="@+id/startchat"
+                    app:layout_constraintEnd_toEndOf="@+id/startchat"
+                    app:layout_constraintStart_toStartOf="@+id/startchat" />
+
+                <!--Action name text for the add person button-->
+                <!--Make sure that you are constraining this Text
+                     to the add Person FAB button-->
+                <TextView
+                    android:id="@+id/logouttext."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="log-Out"
+                    app:layout_constraintBottom_toBottomOf="@+id/logout"
+                    app:layout_constraintEnd_toStartOf="@+id/logout"
+                    app:layout_constraintTop_toTopOf="@+id/logout" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
